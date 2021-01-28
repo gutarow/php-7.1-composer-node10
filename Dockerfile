@@ -59,10 +59,6 @@ RUN apt-get update -y && apt-get install -y \
   apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false && \
   rm -rf /var/lib/apt/lists/*
 
-#PHP SET
-RUN sed -i 's/512M/1024M/g' /usr/local/etc/php/php.ini-production && \
-  cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
-
 #Add Composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php && \
   php composer-setup.php --install-dir=/usr/local/bin --filename=composer && \
