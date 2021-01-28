@@ -60,7 +60,8 @@ RUN apt-get update -y && apt-get install -y \
   rm -rf /var/lib/apt/lists/*
 
 #PHP SET
-RUN sed -i 's/512M/1024M/g' /usr/local/etc/php/php.ini
+RUN sed -i 's/512M/1024M/g' /usr/local/etc/php/php.ini-production && \
+  cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
 #Add Composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php && \
